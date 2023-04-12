@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { EcomerceLambdaNodeStack } from '../lib/ecomerce-lambda-node-stack';
+import { EcommerceLambdaNodeStack } from '../lib/ecommerce-lambda-node-stack';
 
 const app = new cdk.App();
-new EcomerceLambdaNodeStack(app, 'EcomerceLambdaNodeStack', {
+new EcommerceLambdaNodeStack(app, 'EcommerceLambdaNodeStack', {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */
