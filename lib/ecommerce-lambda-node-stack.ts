@@ -2,14 +2,14 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
-export class EcomerceLambdaNodeStack extends cdk.Stack {
+export class EcommerceLambdaNodeStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
     // The code that defines your stack goes here
 
     // example resource
-    // const queue = new sqs.Queue(this, 'EcomerceLambdaNodeQueue', {
+    // const queue = new sqs.Queue(this, 'EcommerceLambdaNodeQueue', {
     //   visibilityTimeout: cdk.Duration.seconds(300)
     // });
   }

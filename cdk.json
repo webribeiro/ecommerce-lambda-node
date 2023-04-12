@@ -1,5 +1,5 @@
 {
-  "app": "npx ts-node --prefer-ts-exts bin/ecomerce-lambda-node.ts",
+  "app": "npx ts-node --prefer-ts-exts bin/ecommerce-lambda-node.ts",
   "watch": {
     "include": [
       "**"

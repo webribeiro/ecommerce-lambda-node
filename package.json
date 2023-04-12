@@ -1,8 +1,8 @@
 {
-  "name": "ecomerce-lambda-node",
+  "name": "ecommerce-lambda-node",
   "version": "0.1.0",
   "bin": {
-    "ecomerce-lambda-node": "bin/ecomerce-lambda-node.js"
+    "ecommerce-lambda-node": "bin/ecommerce-lambda-node.js"
   },
   "scripts": {
     "build": "tsc",
