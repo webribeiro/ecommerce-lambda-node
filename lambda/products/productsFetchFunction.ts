@@ -1,4 +1,4 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from "aws-lambda";
+import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from "aws-lambda"
 
 export async function handler(event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> { 
 
@@ -19,6 +19,13 @@ export async function handler(event: APIGatewayProxyEvent, context: Context): Pr
                     message: "GET Products - OK"
                 })
             }
+        }
+    } else if(event.resource === "/products/{id}") {
+        const productId = event.pathParameters!.id as string
+        console.log(`GET /products/${productId}`)
+        return {
+            statusCode: 200,
+            body: `GET /products/${productId}`
         }
     }
 
