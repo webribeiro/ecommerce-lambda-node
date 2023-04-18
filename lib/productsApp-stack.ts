@@ -35,7 +35,7 @@ export class ProductsAppStack extends cdk.Stack {
             entry: "lambda/products/productsFetchFunction.ts",
             handler: "handler",
             memorySize: 128,
-            timeout: cdk.Duration.seconds(3),
+            timeout: cdk.Duration.seconds(5),
             bundling: {
                 minify: true,
                 sourceMap: false
@@ -53,7 +53,7 @@ export class ProductsAppStack extends cdk.Stack {
             entry: "lambda/products/productsAdminFunction.ts",
             handler: "handler",
             memorySize: 128,
-            timeout: cdk.Duration.seconds(3),
+            timeout: cdk.Duration.seconds(5),
             bundling: {
                 minify: true,
                 sourceMap: false
@@ -64,6 +64,6 @@ export class ProductsAppStack extends cdk.Stack {
             layers: [productslayer]
         })
 
-        this.productsDdb.grantReadData(this.productsAdminHandler)
+        this.productsDdb.grantWriteData(this.productsAdminHandler)
     }
 }
