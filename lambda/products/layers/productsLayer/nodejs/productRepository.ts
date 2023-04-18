@@ -47,7 +47,7 @@ export class ProductRepository {
         return product
     }
 
-    async delete(productId: string): Promise<Product> {
+    async deleteProduct(productId: string): Promise<Product> {
         const data = await this.ddbClient.delete({
             TableName: this.productsDdb,
             Key: {
@@ -62,7 +62,7 @@ export class ProductRepository {
         }
     }
 
-    async update(productId: string, product: Product): Promise<Product> {
+    async updateProduct(productId: string, product: Product): Promise<Product> {
         const data = await this.ddbClient.update({
             TableName: this.productsDdb,
             Key: {

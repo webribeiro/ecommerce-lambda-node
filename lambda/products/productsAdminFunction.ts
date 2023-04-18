@@ -7,7 +7,8 @@ const ddbClient = new DynamoDB.DocumentClient()
 
 const productRepository = new ProductRepository(ddbClient, productsDdb)
 
-export async function handler(event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> {
+export async function handler(event: APIGatewayProxyEvent, 
+    context: Context): Promise<APIGatewayProxyResult> {
 
     const lambdaRequestId = context.awsRequestId
     const apiRequestId = event.requestContext.requestId
@@ -30,10 +31,10 @@ export async function handler(event: APIGatewayProxyEvent, context: Context): Pr
             console.log(`PUT /products/${productId}`)
             const product = JSON.parse(event.body!) as Product
             try {
-                const productUpdate = await productRepository.update(productId, product)
+                const productUpdated = await productRepository.updateProduct(productId, product)
                 return {
                     statusCode: 200,
-                    body: JSON.stringify(productUpdate)
+                    body: JSON.stringify(productUpdated)
                 }
             } catch (ConditionalCheckFailedException) {
                 return {
@@ -45,7 +46,7 @@ export async function handler(event: APIGatewayProxyEvent, context: Context): Pr
         } else if (event.httpMethod === "DELETE") {
             console.log(`DELETE /products/${productId}`)
             try {
-                const product = await productRepository.delete(productId)
+                const product = await productRepository.deleteProduct(productId)
                 return {
                     statusCode: 200,
                     body: JSON.stringify(product)
